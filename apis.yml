@@ -1,17 +1,32 @@
 aid: kasa-living
 name: Kasa Living
-description: 'Kasa Living is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Kasa Living, Inc. (operating as Kasa) is a San Francisco-founded, tech-enabled
+  hospitality company that partners with institutional real-estate owners to convert
+  multifamily, single-family and hotel inventory into professionally managed, apartment-style
+  flexible accommodations across 90+ U.S. cities. Founded in 2016 by Roman Pedan, Kasa
+  runs a proprietary hospitality operating system covering dynamic pricing, automated
+  operations, keyless self check-in and a 24/7 remote "Virtual Front Desk" instead of
+  an on-site front desk, and distributes inventory direct at kasa.com plus through OTAs
+  and GDS via the NextPax supply API. Kasa publishes no public developer API, developer
+  portal or machine-readable API specification; its one machine-readable, agent-facing
+  artifact is a hand-authored llms.txt served at kasa.com/llms.txt.'
+image: https://kasa.com/favicons/apple-icon-180x180.png
 url: https://raw.githubusercontent.com/api-evangelist/kasa-living/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-secondary-market: https://forgeglobal.com/kasa-living_stock/
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Hospitality
+- Travel
+- Short Term Rental
+- Real Estate
+- Accommodations
+- Property Management
+- Corporate Housing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +35,35 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/kasa-living_stock/
+  url: https://kasa.com/
+- type: About
+  url: https://kasa.com/about
+- type: Support
+  url: https://kasa.com/get-help
+- type: Support
+  name: Kasa Help Center
+  url: https://help.kasa.com/
+- type: Blog
+  url: https://blog.kasa.com/
+- type: Press
+  url: https://kasa.com/press
+- type: Careers
+  url: https://kasa.com/careers
+- type: TermsOfService
+  url: https://kasa.com/legal/terms-of-use
+- type: PrivacyPolicy
+  url: https://kasa.com/legal/privacy-policy
+- type: PrivacyPolicy
+  name: Cookie Policy
+  url: https://kasa.com/legal/cookies
+- type: Accessibility
+  url: https://kasa.com/legal/accessibility-statement
+- type: LLMsTxt
+  url: llms/kasa-living-llms.txt
+- type: DomainSecurity
+  url: security/kasa-living-domain-security.yml
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v1

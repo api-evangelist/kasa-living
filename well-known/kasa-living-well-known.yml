@@ -1,0 +1,65 @@
+generated: '2026-08-04'
+method: probed
+source: live HTTPS probes of every first-party Kasa host
+summary: >-
+  No /.well-known/ document is served on any Kasa host. kasa.com and stay.kasa.com
+  are Nuxt/Vercel single-page applications that answer every unmatched path with an
+  HTTP 404 HTML shell, so no probe returned a machine-readable document. Recorded
+  here as evidence of the probe, not as a discovered artifact — no WellKnown or
+  SecurityTxt pointer is wired in apis.yml because nothing was found.
+documents: []
+probes:
+- host: https://kasa.com
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+    body: html
+  - path: /.well-known/openid-configuration
+    status: 404
+    body: html
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    body: html
+  - path: /.well-known/api-catalog
+    status: 404
+    body: html
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    body: html
+  - path: /.well-known/agent-card.json
+    status: 404
+    body: html
+  - path: /.well-known/agent.json
+    status: 404
+    body: html
+- host: https://stay.kasa.com
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://help.kasa.com
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://blog.kasa.com
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+notes:
+- 'api.kasa.com, developer.kasa.com, developers.kasa.com, mcp.kasa.com and trust.kasa.com
+  do not resolve (NXDOMAIN) — there is no API or developer host to probe.'
+- 'The only machine-readable discovery document Kasa serves is /llms.txt (HTTP 200,
+  text/plain), captured verbatim at llms/kasa-living-llms.txt.'

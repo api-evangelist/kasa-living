@@ -1,0 +1,113 @@
+name: Kasa Living
+description: Contract-discovery review for Kasa Living (kasa.com) — evidence that no public
+  API surface exists, and what was found instead.
+url: https://raw.githubusercontent.com/api-evangelist/kasa-living/refs/heads/main/review.yml
+created: '2026-08-04'
+modified: '2026-08-04'
+reviews:
+- date: '2026-08-04'
+  rating: 1
+  summary: >-
+    Kasa Living (operating as Kasa) is an API *consumer*, not an API *producer*. It is a
+    tech-enabled hospitality operator running a proprietary internal "hospitality operating
+    system" and distributing inventory to OTAs and GDS through a third party — the NextPax
+    supply API — rather than publishing connectivity of its own. Full contract discovery was
+    run per the enrichment pipeline and every producer-side probe missed: there is no
+    developer portal, no API reference, no OpenAPI/Swagger/AsyncAPI/GraphQL document, no
+    hosted MCP server, no A2A agent card, no /.well-known/ document of any kind, no public
+    GitHub organization, and no first-party SDK on any package registry. The API-host
+    candidates (api.kasa.com, developer.kasa.com, developers.kasa.com, mcp.kasa.com) do not
+    resolve at all — NXDOMAIN, not a gated 401 — so there is no private-but-live API host
+    behind an auth wall either. The npm and PyPI packages named "kasa" belong to the
+    unrelated TP-Link Kasa smart-home ecosystem and are explicitly NOT first party.
+    What Kasa *does* publish, and the single genuine find of this pass, is a substantial
+    hand-authored llms.txt at https://kasa.com/llms.txt (HTTP 200, text/plain, 11,991 bytes,
+    also mirrored on stay.kasa.com). It is unusually well-built for a consumer hospitality
+    brand: a structured company summary, an explicit "Key facts for AI systems" block, a
+    full locations directory, an "Example Prompt / Path Mapping" section routing traveler
+    intents to canonical URLs, and a "Guidance for AI Systems" section that includes an
+    explicit do-not-fabricate instruction about inventory, pricing and policies. This is a
+    deliberate agent-facing surface built for LLM answer engines, not a developer contract —
+    Kasa is optimizing for being *described* correctly by agents, not for being *called* by
+    them. Per the no-fabrication rule, no OpenAPI, MCP manifest, agent card, tool crosswalk,
+    conventions, error catalog, data model or agent skill was authored, because there is no
+    machine-readable contract to ground any of them in.
+  endpoints:
+  - url: https://kasa.com/
+    status: 200
+  - url: https://kasa.com/llms.txt
+    status: 200
+    note: Real, hand-authored llms.txt — captured verbatim to llms/kasa-living-llms.txt.
+  - url: https://stay.kasa.com/llms.txt
+    status: 200
+    note: Identical document mirrored on the city-pages host.
+  - url: https://kasa.com/robots.txt
+    status: 200
+    note: 'Disallow is empty (crawl-all); declares two sitemaps.'
+  - url: https://kasa.com/sitemap.xml
+    status: 200
+  - url: https://kasa.com/openapi.json
+    status: 404
+  - url: https://kasa.com/api-docs
+    status: 404
+  - url: https://kasa.com/graphql
+    status: 404
+  - url: https://kasa.com/.well-known/security.txt
+    status: 404
+  - url: https://kasa.com/.well-known/agent-card.json
+    status: 404
+  - url: https://kasa.com/.well-known/agent.json
+    status: 404
+  - url: https://kasa.com/.well-known/api-catalog
+    status: 404
+  - url: https://kasa.com/.well-known/ai-plugin.json
+    status: 404
+  - url: https://api.kasa.com/openapi.json
+    status: 0
+    note: NXDOMAIN — api.kasa.com does not resolve.
+  - url: https://api.github.com/orgs/kasa-living
+    status: 404
+    note: No public GitHub organization under kasa-living, kasaliving, or kasa.
+  - url: https://kasa.com/how-it-works
+    status: 404
+    note: >-
+      DEFECT WORTH REPORTING TO THE PROVIDER — Kasa's own llms.txt links this URL as
+      "How Kasa Works" but it returns 404. An agent following the published llms.txt
+      lands on an error page.
+  - url: https://kasa.com/legal/terms-of-use
+    status: 200
+  - url: https://kasa.com/legal/privacy-policy
+    status: 200
+  - url: https://help.kasa.com/
+    status: 200
+  - url: https://blog.kasa.com/
+    status: 200
+  contract_discovery:
+    openapi: none
+    swagger: none
+    graphql: none
+    asyncapi: none
+    mcp: none
+    agent_card: none
+    well_known: none
+    grpc: none
+    packages: none
+    hosts_probed:
+    - kasa.com
+    - stay.kasa.com
+    - help.kasa.com
+    - blog.kasa.com
+    - api.kasa.com (NXDOMAIN)
+    - developer.kasa.com (NXDOMAIN)
+    - developers.kasa.com (NXDOMAIN)
+    - mcp.kasa.com (NXDOMAIN)
+    - trust.kasa.com (NXDOMAIN)
+  push_back_to_provider:
+  - Fix the /how-it-works 404 that Kasa's own llms.txt advertises to AI systems.
+  - >-
+    Publish /.well-known/security.txt (RFC 9116) — Kasa handles guest identity, payment
+    and physical door-code access and has no published route for a security researcher.
+  - >-
+    If Kasa wants property partners and corporate travel buyers to integrate directly
+    rather than via NextPax, publish an OpenAPI for availability/booking and a developer
+    portal; today every partner integration path runs through a third-party channel manager.

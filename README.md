@@ -42,5 +42,38 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kasa Living is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/kasa-living_stock/
+Kasa Living, Inc. (operating as **Kasa**) is a tech-enabled hospitality company founded in San
+Francisco in 2016 by Roman Pedan. It partners with institutional real-estate owners to convert
+multifamily, single-family and hotel inventory into professionally managed, apartment-style flexible
+accommodations across 90+ U.S. cities, running a proprietary hospitality operating system for pricing,
+automated operations, keyless self check-in and a 24/7 remote "Virtual Front Desk" in place of an
+on-site front desk.
+
+## API posture
+
+**Kasa is an API consumer, not an API producer.** Full contract discovery was run against every
+first-party host and every producer-side probe missed: no developer portal, no API reference, no
+OpenAPI/Swagger/AsyncAPI/GraphQL document, no MCP server, no A2A agent card, no `/.well-known/`
+document, no public GitHub organization, and no first-party SDK on any package registry.
+`api.kasa.com`, `developer.kasa.com` and `mcp.kasa.com` do not resolve. Distribution to OTAs and GDS
+runs through a third-party channel manager (the NextPax supply API), not through connectivity Kasa
+publishes itself.
+
+The one machine-readable, agent-facing artifact Kasa does publish is a substantial hand-authored
+[`llms.txt`](https://kasa.com/llms.txt) — captured verbatim here at
+[`llms/kasa-living-llms.txt`](llms/kasa-living-llms.txt). It carries a "Key facts for AI systems"
+block, a full locations directory, an intent→URL prompt-mapping section, and explicit guidance to AI
+systems including a do-not-fabricate instruction about inventory, pricing and policies. Kasa is
+optimizing to be *described* correctly by agents, not to be *called* by them.
+
+Full probe evidence — every URL and status code — is in [`review.yml`](review.yml).
+
+## Links
+
+- Website — https://kasa.com/
+- llms.txt — https://kasa.com/llms.txt
+- Help Center — https://help.kasa.com/
+- Blog — https://blog.kasa.com/
+- Terms of Use — https://kasa.com/legal/terms-of-use
+- Privacy Policy — https://kasa.com/legal/privacy-policy
+- Secondary-market listing (harvest source) — https://forgeglobal.com/kasa-living_stock/
