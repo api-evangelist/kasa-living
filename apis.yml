@@ -10,6 +10,17 @@ description: 'Kasa Living, Inc. (operating as Kasa) is a San Francisco-founded, 
   and GDS via the NextPax supply API. Kasa publishes no public developer API, developer
   portal or machine-readable API specification; its one machine-readable, agent-facing
   artifact is a hand-authored llms.txt served at kasa.com/llms.txt.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kasa.com/favicons/apple-icon-180x180.png
 url: https://raw.githubusercontent.com/api-evangelist/kasa-living/refs/heads/main/apis.yml
 x-type: company
