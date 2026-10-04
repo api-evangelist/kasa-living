@@ -46,7 +46,7 @@ tags:
 - Hospitality
 - Travel
 - Short-Term Rental
-- Real-Estate
+- Real Estate
 - Accommodation
 - Property Management
 - Corporate Housing
@@ -59,6 +59,7 @@ tags_raw:
 - Accommodations
 - Property Management
 - Corporate Housing
+- Real-Estate
 apis: []
 maintainers:
 - FN: Kin Lane
