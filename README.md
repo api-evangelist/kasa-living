@@ -64,38 +64,83 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kasa Living, Inc. (operating as **Kasa**) is a tech-enabled hospitality company founded in San
-Francisco in 2016 by Roman Pedan. It partners with institutional real-estate owners to convert
-multifamily, single-family and hotel inventory into professionally managed, apartment-style flexible
-accommodations across 90+ U.S. cities, running a proprietary hospitality operating system for pricing,
-automated operations, keyless self check-in and a 24/7 remote "Virtual Front Desk" in place of an
-on-site front desk.
+Kasa Living, Inc. (operating as Kasa) is a San Francisco-founded, tech-enabled hospitality company that partners with institutional real-estate owners to convert multifamily, single-family and hotel inventory into professionally managed, apartment-style flexible accommodations across 90+ U.S. cities. Founded in 2016 by Roman Pedan, Kasa runs a proprietary hospitality operating system covering dynamic pricing, automated operations, keyless self check-in and a 24/7 remote "Virtual Front Desk" instead of an on-site front desk, and distributes inventory direct at kasa.com plus through OTAs and GDS via the NextPax supply API. Kasa publishes no public developer API, developer portal or machine-readable API specification; its one machine-readable, agent-facing artifact is a hand-authored llms.txt served at kasa.com/llms.txt.
 
-## API posture
+**Areas:** Company · Hospitality · Travel · Short-Term Rental · Real Estate · Accommodation · Property Management · Corporate Housing
 
-**Kasa is an API consumer, not an API producer.** Full contract discovery was run against every
-first-party host and every producer-side probe missed: no developer portal, no API reference, no
-OpenAPI/Swagger/AsyncAPI/GraphQL document, no MCP server, no A2A agent card, no `/.well-known/`
-document, no public GitHub organization, and no first-party SDK on any package registry.
-`api.kasa.com`, `developer.kasa.com` and `mcp.kasa.com` do not resolve. Distribution to OTAs and GDS
-runs through a third-party channel manager (the NextPax supply API), not through connectivity Kasa
-publishes itself.
+## Kasa Living on APIs.io
 
-The one machine-readable, agent-facing artifact Kasa does publish is a substantial hand-authored
-[`llms.txt`](https://kasa.com/llms.txt) — captured verbatim here at
-[`llms/kasa-living-llms.txt`](llms/kasa-living-llms.txt). It carries a "Key facts for AI systems"
-block, a full locations directory, an intent→URL prompt-mapping section, and explicit guidance to AI
-systems including a do-not-fabricate instruction about inventory, pricing and policies. Kasa is
-optimizing to be *described* correctly by agents, not to be *called* by them.
+Everything profiled for Kasa Living is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kasa-living/](https://apis.io/providers/kasa-living/)** — or go straight to one of the APIs or properties below.
 
-Full probe evidence — every URL and status code — is in [`review.yml`](review.yml).
+### Published properties
 
-## Links
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Website — https://kasa.com/
-- llms.txt — https://kasa.com/llms.txt
-- Help Center — https://help.kasa.com/
-- Blog — https://blog.kasa.com/
-- Terms of Use — https://kasa.com/legal/terms-of-use
-- Privacy Policy — https://kasa.com/legal/privacy-policy
-- Secondary-market listing (harvest source) — https://forgeglobal.com/kasa-living_stock/
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Kasa Living Domain Security](https://apis.io/security/kasa-living/kasa-living-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://kasa.com/)
+- [Support](https://kasa.com/get-help)
+- [Blog](https://blog.kasa.com/)
+- [Terms of service](https://kasa.com/legal/terms-of-use)
+- [Privacy policy](https://kasa.com/legal/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 11.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 56.3 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 21.1 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kasa-living/](https://apis.io/providers/kasa-living/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kasa Living: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kasa-living/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
